@@ -1,49 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Platform,
-  StyleSheet,
   Text,
-  View,
 } from 'react-native';
+// 导入stack导航组件
+import { StackNavigator } from 'react-navigation';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+// import HomeScreen from './app/scenes/HomeScreen'
+import ChatScreen from './app/scenes/ChatScreen'
+import MainScreenNavigator from './app/scenes/MainScreenNavigator'
+// class HomeScreen extends React.Component {
+//   static navigationOptions = {
+//     title: 'Welcome', // 在导航中显示的标题内容
+//   };
+//   render() {
+//     // 这里可以是导入的其他组件
+//     return <Text>Hello, Navigation!</Text>;
+//   }
+// }
+// 进行导航的注册
+const App = StackNavigator({
+  Home: { screen: MainScreenNavigator },
+  Chat: { screen: ChatScreen },
 });
 
-export default class App extends Component {
-  render() {
-    return (
-      <View>
-        <Text>111</Text>
-      </View>
-    );
-  }
-}
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
+export default App;
