@@ -3,9 +3,9 @@ import {
   View,
   Text,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TabNavigator } from 'react-navigation';
-import HomeScreen from './HomeScreen'
-
+import HomeScreen from './HomeScreen';
 
 class AllContactsScreen extends React.Component {
   render() {
@@ -14,8 +14,32 @@ class AllContactsScreen extends React.Component {
 }
 
 const MainScreenNavigator = TabNavigator({
-  Recent: { screen: HomeScreen },
-  All: { screen: AllContactsScreen },
+  Recent: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarLabel: 'Home',
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons
+          name={focused ? 'ios-home' : 'ios-home-outline'}
+          size={26}
+          style={{ color: tintColor }}
+        />
+      ),
+    },
+  },
+  All: {
+    screen: AllContactsScreen,
+    navigationOptions: {
+      tabBarLabel: 'Profile',
+      tabBarIcon: ({ tintColor, focused }) => (
+        <Ionicons
+          name={focused ? 'ios-person' : 'ios-person-outline'}
+          size={26}
+          style={{ color: tintColor }}
+        />
+      ),
+    },
+  },
 });
 MainScreenNavigator.navigationOptions = {
   title: 'My Chats',
