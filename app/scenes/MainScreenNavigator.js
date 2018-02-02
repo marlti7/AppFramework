@@ -4,7 +4,7 @@ import {
   Text,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, TabBarBottom } from 'react-navigation';
 import HomeScreen from './HomeScreen';
 
 class AllContactsScreen extends React.Component {
@@ -40,6 +40,26 @@ const MainScreenNavigator = TabNavigator({
       ),
     },
   },
+}, {
+  tabBarOptions: {
+    tabBarPosition: 'bottom',
+    showIcon: true,
+    activeTintColor: '#007AFF',
+    inactiveTintColor: '#929292',
+    labelStyle: {
+      fontSize: 12,
+    },
+    indicatorStyle: {
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 1,
+    },
+    style: {
+      backgroundColor: 'white',
+    },
+  },
+  tabBarPosition: 'bottom',
+  // animationEnabled: false,
+  // lazy: true,
 });
 MainScreenNavigator.navigationOptions = {
   title: 'My Chats',
