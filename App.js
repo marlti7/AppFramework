@@ -73,7 +73,7 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
     <StatusBar
       translucent
       hidden={false}
-      networkActivityIndicatorVisible
+      networkActivityIndicatorVisible={false}
       backgroundColor={backgroundColor}
       {...props}
     />

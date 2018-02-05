@@ -8,7 +8,10 @@ import {
 import { createIconSetFromFontello } from 'react-native-vector-icons';
 
 import clIconConfig from '../config/customIcon.json';
-// 自定义icon http://fontello.com/ download webfont
+// 自定义icon http://fontello.com/ download webfont config.json 与 ttf文件
+// ios中 需要在项目Xcode文件中 Add file to xiangmu, 并在info.plist中的
+// fonts provided by application加入改字体文件
+// android 需要在 android/app/src/main/assets/fonts文件夹下添加该ttf文件
 const CLIcon = createIconSetFromFontello(clIconConfig);
 
 // 导入stack导航组件
