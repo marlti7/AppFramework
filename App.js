@@ -7,13 +7,17 @@ import {
   StyleSheet,
 } from 'react-native';
 // 导入stack导航组件
+import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
-
+import store from './app/store/index';
 // import HomeScreen from './app/scenes/HomeScreen'
-import ChatScreen from './app/scenes/ChatScreen';
+// import ChatScreen from './app/scenes/ChatScreen';
+import chatScreenContainer from './app/containers/chatScreenContainer';
 import MainScreenNavigator from './app/scenes/MainScreenNavigator';
 // 进行导航的注册
+
+const appStore = store();
 const defaultNavigationOptions = {
   header: null,
   gesturesEnabled: true,
@@ -46,7 +50,7 @@ const tabNavigationOptions = {
 };
 const AppContent = StackNavigator({
   Home: { screen: MainScreenNavigator, navigationOptions: tabNavigationOptions },
-  Chat: { screen: ChatScreen, navigationOptions: defaultNavigationOptions },
+  Chat: { screen: chatScreenContainer, navigationOptions: defaultNavigationOptions },
 }, {
   headerMode: 'screen',
   transitionConfig: () => ({ screenInterpolator: CardStackStyleInterpolator.forHorizontal }),
@@ -80,10 +84,12 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
   </View>
 );
 const App = () => (
-  <View style={{ flex: 1 }}>
-    <MyStatusBar backgroundColor="#79B45D" barStyle="dark-content" />
-    <AppContent />
-  </View>
+  <Provider store={appStore}>
+    <View style={{ flex: 1 }}>
+      <MyStatusBar backgroundColor="#79B45D" barStyle="dark-content" />
+      <AppContent />
+    </View>
+  </Provider>
 );
 
 export default App;
