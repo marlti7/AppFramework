@@ -3,6 +3,7 @@ import {
   Text,
   View,
   Button,
+  StatusBar,
 } from 'react-native';
 import { createIconSetFromFontello } from 'react-native-vector-icons';
 
@@ -12,14 +13,11 @@ const CLIcon = createIconSetFromFontello(clIconConfig);
 
 // 导入stack导航组件
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Recent', // 在导航中显示的标题内容
-  };
   render() {
     // 这里可以是导入的其他组件
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Text>Hello, Chat App!</Text>
         <CLIcon
           name="seer-contacts"

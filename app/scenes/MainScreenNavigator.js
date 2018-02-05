@@ -6,12 +6,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import HomeScreen from './HomeScreen';
-
-class AllContactsScreen extends React.Component {
-  render() {
-    return <Text>List of all contacts</Text>;
-  }
-}
+import AllContactsScreen from './AllContactsScreen';
 
 const MainScreenNavigator = TabNavigator({
   Recent: {
@@ -42,7 +37,6 @@ const MainScreenNavigator = TabNavigator({
   },
 }, {
   tabBarOptions: {
-    tabBarPosition: 'bottom',
     showIcon: true,
     activeTintColor: '#007AFF',
     inactiveTintColor: '#929292',
@@ -57,12 +51,31 @@ const MainScreenNavigator = TabNavigator({
       backgroundColor: 'white',
     },
   },
+  swipeEnabled: true,
   tabBarPosition: 'bottom',
+  backBehavior: 'none',
+  animationEnabled: true,
   // animationEnabled: false,
-  // lazy: true,
+  lazy: true,
 });
-MainScreenNavigator.navigationOptions = {
-  title: 'My Chats',
-};
+// MainScreenNavigator.navigationOptions = {
+//   header: (
+//     <View
+//       style={{
+//         backgroundColor: '#fff',
+//         height: 30,
+//         borderBottomColor: '#f7f7f7',
+//         borderBottomWidth: 1,
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//       }}
+//     >
+//       <Text>
+//         my chat
+//       </Text>
+//     </View>
+//   ),
+//   gesturesEnabled: true,
+// };
 
 export default MainScreenNavigator;

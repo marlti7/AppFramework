@@ -2,17 +2,17 @@ import React from 'react';
 import {
   View,
   Text,
+  TouchableOpacity,
 } from 'react-native';
+import {
+  CustomHeader,
+} from '../components';
 
 export default class ChatScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Chat with Lucy',
-  };
   render() {
+    const { navigation } = this.props;
     return (
-      <View>
-        <Text>Chat with Lucy</Text>
-      </View>
+      <CustomHeader navigation={navigation} />
     );
   }
 }
