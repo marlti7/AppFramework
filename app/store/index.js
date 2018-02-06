@@ -1,16 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore, persistCombineReducers } from 'redux-persist';
+import storage from 'redux-persist/es/storage';
 import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 import rootReducers from '../reducers/rootReducer';
 
+const config = {
+  key: 'root',
+  storage,
+};
 export default function configureStore() {
-  const middleware = [];
-  const enhancers = [];
-
-  /* ------------- redux thunk Middleware ------------- */
-  middleware.push(thunkMiddleware);
-  enhancers.push(applyMiddleware(...middleware));
-  /* ------------- screen traker Middleware ------------- */
-  const store = createStore(rootReducers, composeWithDevTools(...enhancers));
-  return store;
+  const reducer = persistCombineReducers(config, rootReducers);
+  const store = createStore(
+    reducer,
+    compose(
+      applyMiddleware(thunkMiddleware),
+      devToolsEnhancer({ realtime: true, port: 8000 }),
+    ),
+  );
+  const persistor = persistStore(store);
+  return { persistor, store };
 }

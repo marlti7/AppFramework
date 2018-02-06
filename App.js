@@ -8,16 +8,17 @@ import {
 } from 'react-native';
 // 导入stack导航组件
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
 import { StackNavigator } from 'react-navigation';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
-import store from './app/store/index';
+import appStore from './app/store/index';
 // import HomeScreen from './app/scenes/HomeScreen'
 // import ChatScreen from './app/scenes/ChatScreen';
 import chatScreenContainer from './app/containers/chatScreenContainer';
 import MainScreenNavigator from './app/scenes/MainScreenNavigator';
 // 进行导航的注册
 
-const appStore = store();
+const { persistor, store } = appStore();
 const defaultNavigationOptions = {
   header: null,
   gesturesEnabled: true,
@@ -84,11 +85,13 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
   </View>
 );
 const App = () => (
-  <Provider store={appStore}>
-    <View style={{ flex: 1 }}>
-      <MyStatusBar backgroundColor="#79B45D" barStyle="dark-content" />
-      <AppContent />
-    </View>
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <View style={{ flex: 1 }}>
+        <MyStatusBar backgroundColor="#79B45D" barStyle="dark-content" />
+        <AppContent />
+      </View>
+    </PersistGate>
   </Provider>
 );
 
