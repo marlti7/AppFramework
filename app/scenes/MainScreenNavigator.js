@@ -41,6 +41,7 @@ const MainScreenNavigator = TabNavigator({
     activeTintColor: '#007AFF',
     inactiveTintColor: '#929292',
     labelStyle: {
+      top: -3,
       fontSize: 12,
     },
     indicatorStyle: {
@@ -48,6 +49,9 @@ const MainScreenNavigator = TabNavigator({
       borderBottomWidth: 1,
     },
     style: {
+      height: 55,
+      alignItems: 'stretch',
+      justifyContent: 'flex-end',
       backgroundColor: 'white',
       // height: 50,
     },
