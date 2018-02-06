@@ -100,7 +100,7 @@ android {
     defaultConfig {
         applicationId "com.appframework"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         ndk {
@@ -114,6 +114,9 @@ android {
             universalApk false  // If true, also generate a universal APK
             include "armeabi-v7a", "x86"
         }
+    }
+    aaptOptions {
+        cruncherEnabled = false
     }
     buildTypes {
         release {
@@ -137,6 +140,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-splash-screen')
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
