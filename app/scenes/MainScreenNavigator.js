@@ -49,6 +49,7 @@ const MainScreenNavigator = TabNavigator({
     },
     style: {
       backgroundColor: 'white',
+      // height: 50,
     },
   },
   swipeEnabled: true,

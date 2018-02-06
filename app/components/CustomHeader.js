@@ -15,8 +15,8 @@ export default class CustomHeader extends React.Component {
       <View
         style={{
           backgroundColor: '#79B45D',
-          height: Platform.OS === 'ios' ? 64 : 64 - StatusBar.currentHeight,
-          paddingTop: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight,
+          height: Platform.OS === 'ios' ? 64 : 64,
+          paddingTop: Platform.OS === 'ios' ? 20 : 20,
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'row',

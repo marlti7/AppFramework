@@ -1,6 +1,6 @@
 // import { combineReducers } from 'redux';
 import chatSumReducer from './chatSumReducer';
-
+// 新版本redux-persist 修改
 const rehydrated = (state = false, action) => {
   switch (action.type) {
     case 'persist/REHYDRATE':

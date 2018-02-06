@@ -27,7 +27,7 @@ const defaultNavigationOptions = {
     vertical: 135,
   },
 };
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 64 : 64 - StatusBar.currentHeight;
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 64 : 64;
 const tabNavigationOptions = {
   header: (
     <View
@@ -37,7 +37,7 @@ const tabNavigationOptions = {
         // borderBottomColor: '#79B45D',
         // borderBottomWidth: 0,
         // borderTopWidth: 0,
-        paddingTop: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight,
+        paddingTop: Platform.OS === 'ios' ? 20 : 20,
         alignItems: 'center',
         justifyContent: 'center',
       }}

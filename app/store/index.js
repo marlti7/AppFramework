@@ -18,6 +18,7 @@ export default function configureStore() {
     reducer,
     compose(
       applyMiddleware(thunkMiddleware),
+      // redux-devtools-extension 开发者工具需要
       devToolsEnhancer({ realtime: true, port: 8000 }),
     ),
   );
