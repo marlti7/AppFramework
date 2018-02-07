@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 // 导入stack导航组件
+import codePush from 'react-native-code-push';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { StackNavigator } from 'react-navigation';
@@ -75,6 +76,7 @@ const styles = StyleSheet.create({
     // marginTop: STATUSBAR_HEIGHT,
   },
 });
+const codePushOptions = { checkFrequency: codePush.CheckFrequency.MANUAL };
 const MyStatusBar = ({ backgroundColor, ...props }) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
     <StatusBar
@@ -87,10 +89,8 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
   </View>
 );
 
-export default class App extends React.Component {
+class App extends React.Component {
   componentDidMount() {
-    // console.log("message");
-
     SplashScreen.hide();
   }
   render() {
@@ -106,15 +106,5 @@ export default class App extends React.Component {
     );
   }
 }
-// const App = () => (
-//   <Provider store={store}>
-//     <PersistGate persistor={persistor}>
-//       <View style={{ flex: 1 }}>
-//         <MyStatusBar backgroundColor="#79B45D" barStyle="dark-content" />
-//         <AppContent />
-//       </View>
-//     </PersistGate>
-//   </Provider>
-// );
-//
-// export default App;
+// export default codePush(codePushOptions)(App);
+export default App;
