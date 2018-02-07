@@ -5,7 +5,14 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint --ext .js ./src --fix"
+    "lint": "eslint --ext .js ./src --fix",
+    "clean": "watchman watch-del-all && rm -rf node_modules && yarn install && npm start -- --reset-cache",
+    "android:release": "cd android && ./gradlew clean  && ./gradlew assembleRelease && cd app/build/outputs/apk && cp app-release.apk ./AppFramework.apk && open .",
+    "warning-clean-up": "echo '\\033[1;33m Please, uninstall the app from your phone or destroy the emulator\n\\033[0m'",
+    "reinstall-npm-modules": "npm cache verify && rm -rf node_modules && yarn install",
+    "clear:ios": "cd ios && rm -rf build",
+    "android:gradle-clean": "cd android && ./gradlew clean",
+    "hyper-clean": "npm run warning-clean-up && npm run clear:ios && rm -rf $TMPDIR/react-* && npm run reinstall-npm-modules && npm run android:gradle-clean && react-native link"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
