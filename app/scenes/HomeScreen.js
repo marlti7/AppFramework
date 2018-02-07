@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Text,
   View,
-  Button,
-  StatusBar,
+  // Button,
+  // StatusBar,
 } from 'react-native';
+import { Button, Avatar, Badge } from 'react-native-elements';
 import { createIconSetFromFontello } from 'react-native-vector-icons';
 
 import clIconConfig from '../config/customIcon.json';
@@ -30,6 +31,27 @@ export default class HomeScreen extends React.Component {
         <Button
           onPress={() => navigate('Chat')}
           title="Chat with Lucy"
+        />
+        <Badge
+          value={3}
+          textStyle={{ color: 'orange' }}
+          containerStyle={{
+            width: 20,
+            height: 20,
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 0,
+            paddingTop: 0,
+            paddingBottom: 0,
+          }}
+          wrapperStyle={{ justifyContent: 'center', alignItems: 'center' }}
+        />
+        <Avatar
+          small
+          rounded
+          title="MT"
+          // onPress={() => console.log("Works!")}
+          activeOpacity={0.7}
         />
       </View>
     );
