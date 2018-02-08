@@ -34,7 +34,7 @@ export default class HomeScreen extends React.Component {
         />
         <Badge
           value={3}
-          textStyle={{ color: 'orange' }}
+          textStyle={{ color: 'red' }}
           containerStyle={{
             width: 20,
             height: 20,

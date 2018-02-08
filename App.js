@@ -92,6 +92,14 @@ const MyStatusBar = ({ backgroundColor, ...props }) => (
 class App extends React.Component {
   componentDidMount() {
     SplashScreen.hide();
+    codePush.notifyAppReady();// 为避免警告
+    this.sync();
+  }
+  sync = () => {
+    codePush.sync({
+      updateDialog: false,
+      mandatoryInstallMode: codePush.InstallMode.ON_NEXT_RESUME,
+    });
   }
   render() {
     return (
@@ -106,5 +114,5 @@ class App extends React.Component {
     );
   }
 }
-// export default codePush(codePushOptions)(App);
-export default App;
+export default codePush(codePushOptions)(App);
+// export default App;
