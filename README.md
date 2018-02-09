@@ -24,3 +24,5 @@
   npm run android:release生成AppFramework.apk 安装即可
 
 ### 9. 已做代码es6规范, 配置在.eslintrc.js
+
+### 10. codepush 在test-codepush分支
