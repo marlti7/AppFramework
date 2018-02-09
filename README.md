@@ -12,5 +12,7 @@
 
 ### 6. 运行效果图
 ![](app/images/1.png)
-![](app/images/3.png =100x178)
-![](app/images/2.png =100x178)
+<img src="./app/images/3.png" width = "100" height = "178" alt="图片名称" align=center />
+<!-- ![](app/images/3.png =100x178) -->
+<!-- ![](app/images/2.png =100x178) -->
+<img src="./app/images/2.png" width = "100" height = "178" alt="图片名称" align=center />
