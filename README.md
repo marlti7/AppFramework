@@ -12,3 +12,5 @@
 
 ### 6. 运行效果图
 ![](app/images/1.png)
+![](app/images/3.png)
+![](app/images/2.png)
