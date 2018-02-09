@@ -16,3 +16,11 @@
 <!-- ![](app/images/3.png =100x178) -->
 <!-- ![](app/images/2.png =100x178) -->
 <img src="./app/images/2.png" width = "100" height = "178" alt="图片名称" align=center />
+
+### 7. 下载运行
+  npm run hyper-clean && react-native run ios(android)
+
+### 8. 打包apk
+  npm run android:release生成AppFramework.apk 安装即可
+
+### 9. 已做代码es6规范, 配置在.eslintrc.js
